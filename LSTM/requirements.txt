@@ -2,6 +2,7 @@ streamlit
 tensorflow-cpu
 yfinance
 numpy
+plotly
 pandas
 matplotlib
 pillow
