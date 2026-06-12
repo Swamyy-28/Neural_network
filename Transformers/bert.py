@@ -205,24 +205,6 @@ with col_right:
     else:
         st.info("💡 Write an input string sequence inside the field on the left and click execute to trigger attention mapping.")
 
-# --- Full Width Conceptual Section ---
-st.markdown('<div class="custom-block"></div>', unsafe_allow_html=True)
-st.subheader("💡 How BERT Differs from LSTMs & Bi-LSTMs")
-st.write("""
-Unlike LSTMs or GRUs that read text word-by-word in a sequence, **BERT completely ditches recurrent loops**. 
-It processes the entire text block simultaneously using **Self-Attention Mechanism**. 
-""")
-
-b_col1, b_col2, b_col3 = st.columns(3)
-with b_col1:
-    st.markdown("**1. No Time Steps**")
-    st.caption("BERT reads all tokens at once, making it incredibly fast to train on massive amounts of data.")
-with b_col2:
-    st.markdown("**2. True Bidirectional Context**")
-    st.caption("Instead of running two independent loops, BERT's attention heads look at every word's relation to all surrounding words in one unified step.")
-with b_col3:
-    st.markdown("**3. Special Classification Token ([CLS])**")
-    st.caption("The very first token `[CLS]` aggregates the context of the entire sentence to perform classification tasks.")
 
 # --- Attention Matrix Weight Map Breakdown ---
 if trigger_process and sample_text.strip() and 'tokens' in locals():
