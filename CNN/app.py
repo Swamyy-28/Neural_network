@@ -103,6 +103,8 @@ if uploaded_file is not None:
         28,
         1
     )
+    st.write("Image Shape:", img_array.shape)
+    st.write("Model:", model)
 
     prediction = model.predict(img_array)
 
