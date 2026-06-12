@@ -1,9 +1,9 @@
-tensorflow
-
 streamlit
-
-pandas
-
+tensorflow-cpu
 numpy
-
+pandas
+matplotlib
+pillow
+torch
+transformers
 scikit-learn
