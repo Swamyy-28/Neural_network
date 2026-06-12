@@ -14,6 +14,15 @@ st.set_page_config(
     layout="wide"
 )
 
+st.write("Current Directory:", os.getcwd())
+st.write("Root Files:", os.listdir())
+
+if os.path.exists("models"):
+    st.write("Models Folder:", os.listdir("models"))
+
+MODEL_PATH = "models/cnn_fashion_model.h5"
+
+st.write("Model Exists:", os.path.exists(MODEL_PATH))
 # =====================================================
 # LOAD MODEL
 # =====================================================
