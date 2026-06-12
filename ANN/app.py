@@ -2,8 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 import pandas as pd
-import plotly.graph_objects as go
-
+import matplotlib.pyplot as plt
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -142,7 +141,7 @@ accuracy = accuracy_score(y_test, predictions)
 # =====================================================
 # TITLE & HERO HEADLINE
 # =====================================================
-st.markdown('<h1 class="title">ANN Breast Cancer predictor</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title">ANN Breast Cancer predictor</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Clinical Diagnostic Artificial Neural Network Engine trained on the Breast Cancer Wisconsin Matrix Data Profile.</p>', unsafe_allow_html=True)
 
 # Layout Splitting: Diagnostic Panel vs Target Specifications
@@ -240,20 +239,14 @@ if st.button("Run Diagnostic Classifier Pipeline", type="primary", use_container
         st.markdown('<div class="medical-card" style="height: 100%;">', unsafe_allow_html=True)
         st.subheader("📈 Spatial Diagnostic Probability Chart")
         
-        # Interactive Plotly chart to replace old matplotlib rendering engine layout 
-        fig_bars = go.Figure()
-        fig_bars.add_trace(go.Bar(
-            x=labels, y=probs,
-            marker_color=['#ef4444', '#10b981'],
-            width=0.4
-        ))
-        fig_bars.update_layout(
-            yaxis=dict(title="Probability Matrix", range=[0, 1], gridcolor='#f1f5f9'),
-            xaxis=dict(title="Pathological Condition Category"),
-            height=280, margin=dict(l=10, r=10, t=10, b=10),
-            plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)'
-        )
-        st.plotly_chart(fig_bars, use_container_width=True)
+        # Fixed Matplotlib instantiation indentation inside layout context
+        fig, ax = plt.subplots(figsize=(6, 3))
+        ax.bar(labels, probs, color=['#ef4444', '#22c55e'])
+        ax.set_ylabel("Probability")
+        ax.set_xlabel("Condition")
+        ax.set_title("Prediction Probabilities")
+        
+        st.pyplot(fig)
         st.markdown('</div>', unsafe_allow_html=True)
 
 # =====================================================
