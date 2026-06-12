@@ -5,4 +5,5 @@ pandas
 matplotlib
 pillow
 torch
+transformers
 scikit-learn
