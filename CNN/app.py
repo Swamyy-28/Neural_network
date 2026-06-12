@@ -11,9 +11,17 @@ import matplotlib.pyplot as plt
 
 @st.cache_resource
 def load_model():
-    tf.keras.models.load_model(
-    "CNN/models/cnn_fashion_model.h5"
-)
+    try:
+        model = tf.keras.models.load_model(
+            "CNN/models/cnn_fashion_model.h5",
+            compile=False
+        )
+        st.success("Model loaded successfully")
+        return model
+
+    except Exception as e:
+        st.error(str(e))
+        return None
 
 model = load_model()
 
