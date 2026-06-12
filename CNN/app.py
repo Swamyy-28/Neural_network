@@ -5,25 +5,6 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
-
-# =====================================================
-# PAGE CONFIG
-# =====================================================
-
-st.set_page_config(
-    page_title="CNN Fashion MNIST Classifier",
-    layout="wide"
-)
-
-st.write("Current Directory:", os.getcwd())
-st.write("Root Files:", os.listdir())
-
-if os.path.exists("models"):
-    st.write("Models Folder:", os.listdir("models"))
-
-MODEL_PATH = "models/cnn_fashion_model.h5"
-
-st.write("Model Exists:", os.path.exists(MODEL_PATH))
 # =====================================================
 # LOAD MODEL
 # =====================================================
