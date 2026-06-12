@@ -30,9 +30,9 @@ st.write("Model Exists:", os.path.exists(MODEL_PATH))
 
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model(
-        "models/cnn_fashion_model.h5"
-    )
+    tf.keras.models.load_model(
+    "CNN/models/cnn_fashion_model.h5"
+)
 
 model = load_model()
 
