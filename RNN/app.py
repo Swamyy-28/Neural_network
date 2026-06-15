@@ -7,7 +7,7 @@ import numpy as np
 
 # Load Model
 model = tf.keras.models.load_model(
-    "rnn_imdb_model.h5"
+    "RNN/rnn_imdb_model.h5"
 )
 
 st.title("🎬 IMDb Review Sentiment Analysis using RNN")
